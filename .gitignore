@@ -23,3 +23,9 @@ uchime
 
 *.stderr
 *.pat
+*.i
+*.ii
+*.gpu
+*.ptx
+*.cubin
+*.fatbin
