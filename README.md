@@ -3,7 +3,7 @@
 Welcome to the mothur project, initiated by Dr. Patrick Schloss and his software development team in the Department of Microbiology &amp; Immunology at The University of Michigan. This project seeks to develop a single piece of open-source, expandable software to fill the bioinformatics needs of the microbial ecology community. mothur is available under the GPL license.
 
 
-MothurCuda is a Cuda optimized Mothur Implementation that aims to optimize certain commands by leveraging GPU utilities made availabe the Nvidia Cuda. 
+MothurCuda is a Mothur Implementation that aims to optimize certain commands by leveraging GPU utilities made available by Nvidia Cuda. 
 
 
 Useful links...
