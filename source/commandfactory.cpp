@@ -7,15 +7,15 @@
  *
  */
 
-#include "command.hpp"
 #include "clustercommand.h"
-#include "quitcommand.h"
-#include "helpcommand.h"
-#include "distancecommand.h"
-#include "preclustercommand.h"
-#include "setdircommand.h"
 #include "clusterdoturcommand.h"
+#include "command.hpp"
+#include "distancecommand.h"
+#include "helpcommand.h"
 #include "nocommands.h"
+#include "preclustercommand.h"
+#include "quitcommand.h"
+#include "setdircommand.h"
 
 //needed for testing project
 //CommandFactory* CommandFactory::_uniqueInstance;
@@ -46,12 +46,12 @@ CommandFactory::CommandFactory(){
 
 	//initialize list of valid commands
 	commands["cluster"]				= "cluster";
-	commands["pre.cluster"]			= "pre.cluster";
-	commands["help"]				= "help";
-	commands["set.dir"]				= "set.dir";
 	commands["cluster.classic"]		= "cluster.classic";
 	commands["dist.seqs"]			= "dist.seqs";
+	commands["help"]				= "help";
+	commands["pre.cluster"]			= "pre.cluster";
 	commands["quit"]				= "quit";
+	commands["set.dir"]				= "set.dir";
 }
 
 /***********************************************************/
@@ -172,6 +172,67 @@ Command* CommandFactory::getCommand(string commandName, string optionString){
 	}
 }
 /***********************************************************/
+/***********************************************************/
+//This function calls the appropriate command fucntions based on user input.
+Command* CommandFactory::getCommand(string commandName, string optionString, string mode){
+	try {
+		delete pipecommand;   //delete the old command
+
+        checkForRedirects(optionString);
+
+		//user has opted to redirect output from dir where input files are located to some other place
+		if (outputDir != "") {
+			if (optionString != "") { optionString += ", outputdir=" + outputDir; }
+			else { optionString += "outputdir=" + outputDir; }
+		}
+
+		//user has opted to redirect input from dir where mothur.exe is located to some other place
+		if (inputDir != "") {
+			if (optionString != "") { optionString += ", inputdir=" + inputDir; }
+			else { optionString += "inputdir=" + inputDir; }
+		}
+
+		if(commandName == "cluster")                    {	pipecommand = new ClusterCommand(optionString);					}
+		else if(commandName == "quit")					{	pipecommand = new QuitCommand(optionString);					}
+		else if(commandName == "dist.seqs")				{   pipecommand = new DistanceCommand(optionString);				}
+		else if(commandName == "help")					{	pipecommand = new HelpCommand(optionString);					}
+		else if(commandName == "pre.cluster")			{	pipecommand = new PreClusterCommand(optionString);				}
+		else if(commandName == "set.dir")				{	pipecommand = new SetDirectoryCommand(optionString);			}
+		else if(commandName == "cluster.classic")		{	pipecommand = new ClusterDoturCommand(optionString);			}
+		else											{	pipecommand = new NoCommand(optionString);		
+
+		return pipecommand;
+	}
+	catch(exception& e) {
+		m->errorOut(e, "CommandFactory", "getCommand");
+		exit(1);
+	}
+}
+/***********************************************************/
+
+/***********************************************************/
+//This function calls the appropriate command fucntions based on user input, this is used by the pipeline command to check a users piepline for errors before running
+Command* CommandFactory::getCommand(string commandName){
+	try {
+		delete shellcommand;   //delete the old command
+
+		if(commandName == "cluster")                    {	shellcommand = new ClusterCommand(optionString);					}
+		else if(commandName == "quit")					{	shellcommand = new QuitCommand(optionString);					}
+		else if(commandName == "dist.seqs")				{   shellcommand = new DistanceCommand(optionString);				}
+		else if(commandName == "help")					{	shellcommand = new HelpCommand(optionString);					}
+		else if(commandName == "pre.cluster")			{	shellcommand = new PreClusterCommand(optionString);				}
+		else if(commandName == "set.dir")				{	shellcommand = new SetDirectoryCommand(optionString);			}
+		else if(commandName == "cluster.classic")		{	shellcommand = new ClusterDoturCommand(optionString);			}
+		else											{	shellcommand = new NoCommand(optionString);	
+
+		return shellcommand;
+	}
+	catch(exception& e) {
+		m->errorOut(e, "CommandFactory", "getCommand");
+		exit(1);
+	}
+}
+
 bool CommandFactory::isValidCommand(string command) {
 	try {
 
