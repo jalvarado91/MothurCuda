@@ -9,150 +9,13 @@
 
 #include "command.hpp"
 #include "clustercommand.h"
-#include "collectcommand.h"
-#include "collectsharedcommand.h"
-#include "getgroupcommand.h"
-#include "getlabelcommand.h"
-#include "rarefactcommand.h"
-#include "summarycommand.h"
-#include "summarysharedcommand.h"
-#include "rarefactsharedcommand.h"
 #include "quitcommand.h"
 #include "helpcommand.h"
-#include "commandfactory.hpp"
-#include "deconvolutecommand.h"
-#include "parsimonycommand.h"
-#include "unifracunweightedcommand.h"
-#include "unifracweightedcommand.h"
-#include "libshuffcommand.h"
-#include "heatmapcommand.h"
-#include "heatmapsimcommand.h"
-#include "filterseqscommand.h"
-#include "venncommand.h"
-#include "nocommands.h"
-#include "binsequencecommand.h"
-#include "getoturepcommand.h"
-#include "treegroupscommand.h"
 #include "distancecommand.h"
-#include "aligncommand.h"
-#include "matrixoutputcommand.h"
-#include "getsabundcommand.h"
-#include "getrabundcommand.h"
-#include "seqsummarycommand.h"
-#include "screenseqscommand.h"
-#include "reversecommand.h"
-#include "trimseqscommand.h"
-#include "mergefilecommand.h"
-#include "listseqscommand.h"
-#include "getseqscommand.h"
-#include "removeseqscommand.h"
-#include "systemcommand.h"
-#include "secondarystructurecommand.h"
-#include "getsharedotucommand.h"
-#include "getlistcountcommand.h"
-#include "classifyseqscommand.h"
-#include "phylotypecommand.h"
-#include "mgclustercommand.h"
 #include "preclustercommand.h"
-#include "pcoacommand.h"
-#include "otuhierarchycommand.h"
 #include "setdircommand.h"
-#include "parselistscommand.h"
-#include "chimeraccodecommand.h"
-#include "chimeracheckcommand.h"
-#include "chimeraslayercommand.h"
-#include "chimerapintailcommand.h"
-#include "chimerabellerophoncommand.h"
-#include "chimerauchimecommand.h"
-#include "setlogfilecommand.h"
-#include "phylodiversitycommand.h"
-#include "makegroupcommand.h"
-#include "chopseqscommand.h"
-#include "clearcutcommand.h"
-#include "catchallcommand.h"
-#include "splitabundcommand.h"
-#include "clustersplitcommand.h"
-#include "classifyotucommand.h"
-#include "degapseqscommand.h"
-#include "getrelabundcommand.h"
-#include "sensspeccommand.h"
-#include "sffinfocommand.h"
-#include "seqerrorcommand.h"
-#include "normalizesharedcommand.h"
-#include "metastatscommand.h"
-#include "splitgroupscommand.h"
-#include "clusterfragmentscommand.h"
-#include "getlineagecommand.h"
-#include "removelineagecommand.h"
-#include "parsefastaqcommand.h"
-#include "deuniqueseqscommand.h"
-#include "pairwiseseqscommand.h"
 #include "clusterdoturcommand.h"
-#include "subsamplecommand.h"
-#include "removegroupscommand.h"
-#include "getgroupscommand.h"
-#include "indicatorcommand.h"
-#include "consensusseqscommand.h"
-#include "trimflowscommand.h"
-#include "corraxescommand.h"
-#include "shhhercommand.h"
-#include "pcacommand.h"
-#include "nmdscommand.h"
-#include "removerarecommand.h"
-#include "mergegroupscommand.h"
-#include "amovacommand.h"
-#include "homovacommand.h"
-#include "mantelcommand.h"
-#include "makefastqcommand.h"
-#include "anosimcommand.h"
-#include "getcurrentcommand.h"
-#include "setcurrentcommand.h"
-#include "sharedcommand.h"
-#include "getcommandinfocommand.h"
-#include "deuniquetreecommand.h"
-#include "countseqscommand.h"
-#include "countgroupscommand.h"
-#include "summarytaxcommand.h"
-#include "chimeraperseuscommand.h"
-#include "shhhseqscommand.h"
-#include "summaryqualcommand.h"
-#include "otuassociationcommand.h"
-#include "sortseqscommand.h"
-#include "classifytreecommand.h"
-#include "cooccurrencecommand.h"
-#include "pcrseqscommand.h"
-#include "createdatabasecommand.h"
-#include "makebiomcommand.h"
-#include "getcoremicrobiomecommand.h"
-#include "listotulabelscommand.h"
-#include "getotulabelscommand.h"
-#include "removeotulabelscommand.h"
-#include "makecontigscommand.h"
-#include "sffmultiplecommand.h"
-#include "classifysvmsharedcommand.h"
-#include "classifyrfsharedcommand.h"
-#include "filtersharedcommand.h"
-#include "primerdesigncommand.h"
-#include "getdistscommand.h"
-#include "removedistscommand.h"
-#include "mergetaxsummarycommand.h"
-#include "getmetacommunitycommand.h"
-#include "sparcccommand.h"
-#include "makelookupcommand.h"
-#include "renameseqscommand.h"
-#include "makelefsecommand.h"
-#include "lefsecommand.h"
-#include "kruskalwalliscommand.h"
-#include "sracommand.h"
-#include "mergesfffilecommand.h"
-#include "getmimarkspackagecommand.h"
-#include "mimarksattributescommand.h"
-#include "setseedcommand.h"
-#include "makefilecommand.h"
-#include "biominfocommand.h"
-#include "renamefilecommand.h"
-#include "chimeravsearchcommand.h"
-#include "mergecountcommand.hpp"
+#include "nocommands.h"
 
 //needed for testing project
 //CommandFactory* CommandFactory::_uniqueInstance;
@@ -182,155 +45,13 @@ CommandFactory::CommandFactory(){
 	append = false;
 
 	//initialize list of valid commands
-	commands["make.shared"]			= "make.shared";
-	commands["bin.seqs"]			= "bin.seqs";
-	commands["get.oturep"]			= "get.oturep";
 	commands["cluster"]				= "cluster";
-	commands["unique.seqs"]			= "unique.seqs";
-	commands["dist.shared"]			= "dist.shared";
-	commands["collect.single"]		= "collect.single";
-	commands["collect.shared"]		= "collect.shared";
-	commands["rarefaction.single"]	= "rarefaction.single";
-	commands["rarefaction.shared"]	= "rarefaction.shared";
-	commands["summary.single"]		= "summary.single";
-	commands["summary.shared"]		= "summary.shared";
-	commands["parsimony"]			= "parsimony";
-	commands["unifrac.weighted"]	= "unifrac.weighted";
-	commands["unifrac.unweighted"]	= "unifrac.unweighted";
-	commands["libshuff"]			= "libshuff";
-	commands["tree.shared"]			= "tree.shared";
-	commands["heatmap.bin"]			= "heatmap.bin";
-	commands["heatmap.sim"]			= "heatmap.sim";
-	commands["venn"]				= "venn";
-	commands["get.group"]           = "get.group";
-	commands["get.label"]           = "get.label";
-	commands["get.sabund"]          = "get.sabund";
-	commands["get.rabund"]          = "get.rabund";
-	commands["help"]				= "help";
-	commands["reverse.seqs"]		= "reverse.seqs";
-	commands["trim.seqs"]			= "trim.seqs";
-	commands["trim.flows"]			= "trim.flows";
-	commands["list.seqs"]			= "list.seqs";
-	commands["get.seqs"]			= "get.seqs";
-	commands["remove.seqs"]			= "remove.seqs";
-	commands["system"]				= "system";
-	commands["align.check"]			= "align.check";
-	commands["get.sharedseqs"]		= "get.sharedseqs";
-	commands["get.otulist"]			= "get.otulist";
-	commands["phylotype"]			= "phylotype";
-	commands["mgcluster"]			= "mgcluster";
 	commands["pre.cluster"]			= "pre.cluster";
-	commands["pcoa"]				= "pcoa";
-	commands["otu.hierarchy"]		= "otu.hierarchy";
+	commands["help"]				= "help";
 	commands["set.dir"]				= "set.dir";
-	commands["merge.files"]			= "merge.files";
-	commands["parse.list"]			= "parse.list";
-	commands["set.logfile"]			= "set.logfile";
-	commands["phylo.diversity"]		= "phylo.diversity";
-	commands["make.group"]			= "make.group";
-	commands["chop.seqs"]			= "chop.seqs";
-	commands["clearcut"]			= "clearcut";
-	commands["catchall"]			= "catchall";
-	commands["split.abund"]			= "split.abund";
-	commands["classify.otu"]		= "classify.otu";
-	commands["degap.seqs"]			= "degap.seqs";
-	commands["get.relabund"]		= "get.relabund";
-	commands["sffinfo"]				= "sffinfo";
-	commands["normalize.shared"]	= "normalize.shared";
-	commands["metastats"]			= "metastats";
-	commands["split.groups"]		= "split.groups";
-	commands["cluster.fragments"]	= "cluster.fragments";
-	commands["get.lineage"]			= "get.lineage";
-	commands["remove.lineage"]		= "remove.lineage";
-	commands["fastq.info"]			= "fastq.info";
-	commands["deunique.seqs"]		= "deunique.seqs";
 	commands["cluster.classic"]		= "cluster.classic";
-	commands["sub.sample"]			= "sub.sample";
-	commands["remove.groups"]		= "remove.groups";
-	commands["get.groups"]			= "get.groups";
-	commands["get.otus"]			= "get.otus";
-	commands["remove.otus"]			= "remove.otus";
-	commands["indicator"]			= "indicator";
-	commands["consensus.seqs"]		= "consensus.seqs";
-	commands["corr.axes"]			= "corr.axes";
-	commands["pca"]					= "pca";
-	commands["nmds"]				= "nmds";
-	commands["remove.rare"]			= "remove.rare";
-	commands["amova"]				= "amova";
-	commands["homova"]				= "homova";
-	commands["mantel"]				= "mantel";
-	commands["anosim"]				= "anosim";
-	commands["make.fastq"]			= "make.fastq";
-	commands["merge.groups"]		= "merge.groups";
-	commands["get.current"]			= "get.current";
-	commands["set.current"]			= "set.current";
-	commands["get.commandinfo"]		= "get.commandinfo";
-	commands["deunique.tree"]		= "deunique.tree";
-	commands["count.seqs"]			= "count.seqs";
-	commands["count.groups"]		= "count.groups";
-	commands["pairwise.seqs"]		= "pairwise.seqs";
-	commands["classify.seqs"]		= "classify.seqs";
 	commands["dist.seqs"]			= "dist.seqs";
-	commands["filter.seqs"]			= "filter.seqs";
-	commands["align.seqs"]			= "align.seqs";
-	commands["chimera.ccode"]		= "chimera.ccode";
-	commands["chimera.check"]		= "chimera.check";
-	commands["chimera.slayer"]		= "chimera.slayer";
-	commands["chimera.uchime"]		= "chimera.uchime";
-	commands["chimera.perseus"]		= "chimera.perseus";
-	commands["chimera.pintail"]		= "chimera.pintail";
-	commands["chimera.bellerophon"]	= "chimera.bellerophon";
-    commands["chimera.vsearch"]     = "chimera.vsearch";
-	commands["screen.seqs"]			= "screen.seqs";
-	commands["summary.seqs"]		= "summary.seqs";
-	commands["cluster.split"]		= "cluster.split";
-	commands["shhh.flows"]			= "shhh.flows";
-	commands["sens.spec"]			= "sens.spec";
-	commands["seq.error"]			= "seq.error";
-	commands["summary.tax"]			= "summary.tax";
-	commands["summary.qual"]		= "summary.qual";
-	commands["shhh.seqs"]			= "shhh.seqs";
-	commands["otu.association"]		= "otu.association";
-    commands["sort.seqs"]           = "sort.seqs";
-    commands["classify.tree"]       = "classify.tree";
-    commands["cooccurrence"]        = "cooccurrence";
-    commands["pcr.seqs"]            = "pcr.seqs";
-    commands["create.database"]     = "create.database";
-    commands["make.biom"]           = "make.biom";
-    commands["get.coremicrobiome"]  = "get.coremicrobiome";
-    commands["list.otus"]           = "list.otus";
-    commands["list.otulabels"]      = "list.otulabels";
-    commands["get.otulabels"]       = "get.otulabels";
-    commands["remove.otulabels"]    = "remove.otulabels";
-    commands["make.contigs"]        = "make.contigs";
-    commands["make.table"]          = "make.table";
-    commands["sff.multiple"]        = "sff.multiple";
 	commands["quit"]				= "quit";
-    //commands["classify.rf"]         = "classify.rf";
-    commands["classify.svm"]        = "classify.svm";
-    commands["filter.shared"]		= "filter.shared";
-    commands["primer.design"]		= "primer.design";
-    commands["get.dists"]           = "get.dists";
-    commands["remove.dists"]        = "remove.dists";
-    commands["merge.taxsummary"]    = "merge.taxsummary";
-    commands["get.communitytype"]   = "get.communitytype";
-    commands["sparcc"]              = "sparcc";
-    commands["make.lookup"]         = "make.lookup";
-    commands["rename.seqs"]         = "rename.seqs";
-    commands["make.lefse"]          = "make.lefse";
-    commands["lefse"]               = "lefse";
-    commands["kruskal.wallis"]      = "kruskal.wallis";
-    commands["make.sra"]            = "make.sra";
-    commands["merge.sfffiles"]      = "merge.sfffiles";
-    commands["get.mimarkspackage"]  = "get.mimarkspackage";
-    commands["mimarks.attributes"]  = "mimarks.attributes";
-    commands["make.file"]           = "make.file";
-    commands["biom.info"]           = "biom.info";
-    commands["set.seed"]            = "set.seed";
-    commands["rename.file"]         = "rename.file";
-    commands["merge.count"]         = "merge.count";
-
-
 }
 
 /***********************************************************/
@@ -437,6 +158,7 @@ Command* CommandFactory::getCommand(string commandName, string optionString){
 		if(commandName == "cluster")                    {	command = new ClusterCommand(optionString);					}
 		else if(commandName == "quit")					{	command = new QuitCommand(optionString);					}
 		else if(commandName == "dist.seqs")				{   command = new DistanceCommand(optionString);				}
+		else if(commandName == "help")					{	command = new HelpCommand(optionString);	
 		else if(commandName == "pre.cluster")			{	command = new PreClusterCommand(optionString);				}
 		else if(commandName == "set.dir")				{	command = new SetDirectoryCommand(optionString);			}
 		else if(commandName == "cluster.classic")		{	command = new ClusterDoturCommand(optionString);			}
