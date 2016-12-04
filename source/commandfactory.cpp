@@ -216,14 +216,14 @@ Command* CommandFactory::getCommand(string commandName){
 	try {
 		delete shellcommand;   //delete the old command
 
-		if(commandName == "cluster")                    {	shellcommand = new ClusterCommand(optionString);				}
-		else if(commandName == "quit")					{	shellcommand = new QuitCommand(optionString);					}
-		else if(commandName == "dist.seqs")				{   shellcommand = new DistanceCommand(optionString);				}
-		else if(commandName == "help")					{	shellcommand = new HelpCommand(optionString);					}
-		else if(commandName == "pre.cluster")			{	shellcommand = new PreClusterCommand(optionString);				}
-		else if(commandName == "set.dir")				{	shellcommand = new SetDirectoryCommand(optionString);			}
-		else if(commandName == "cluster.classic")		{	shellcommand = new ClusterDoturCommand(optionString);			}
-		else											{	shellcommand = new NoCommand(optionString);						}
+		if(commandName == "cluster")                    {	shellcommand = new ClusterCommand();				}
+		else if(commandName == "quit")					{	shellcommand = new QuitCommand();					}
+		else if(commandName == "dist.seqs")				{   shellcommand = new DistanceCommand();				}
+		else if(commandName == "help")					{	shellcommand = new HelpCommand();					}
+		else if(commandName == "pre.cluster")			{	shellcommand = new PreClusterCommand();				}
+		else if(commandName == "set.dir")				{	shellcommand = new SetDirectoryCommand();			}
+		else if(commandName == "cluster.classic")		{	shellcommand = new ClusterDoturCommand();			}
+		else											{	shellcommand = new NoCommand();						}
 
 		return shellcommand;
 	}
