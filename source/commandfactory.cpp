@@ -158,11 +158,11 @@ Command* CommandFactory::getCommand(string commandName, string optionString){
 		if(commandName == "cluster")                    {	command = new ClusterCommand(optionString);					}
 		else if(commandName == "quit")					{	command = new QuitCommand(optionString);					}
 		else if(commandName == "dist.seqs")				{   command = new DistanceCommand(optionString);				}
-		else if(commandName == "help")					{	command = new HelpCommand(optionString);	
+		else if(commandName == "help")					{	command = new HelpCommand(optionString);					}
 		else if(commandName == "pre.cluster")			{	command = new PreClusterCommand(optionString);				}
 		else if(commandName == "set.dir")				{	command = new SetDirectoryCommand(optionString);			}
 		else if(commandName == "cluster.classic")		{	command = new ClusterDoturCommand(optionString);			}
-			else											{	command = new NoCommand(optionString);						}
+		else											{	command = new NoCommand(optionString);						}
 
 		return command;
 	}
