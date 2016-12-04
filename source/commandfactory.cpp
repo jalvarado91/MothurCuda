@@ -199,7 +199,7 @@ Command* CommandFactory::getCommand(string commandName, string optionString, str
 		else if(commandName == "pre.cluster")			{	pipecommand = new PreClusterCommand(optionString);				}
 		else if(commandName == "set.dir")				{	pipecommand = new SetDirectoryCommand(optionString);			}
 		else if(commandName == "cluster.classic")		{	pipecommand = new ClusterDoturCommand(optionString);			}
-		else											{	pipecommand = new NoCommand(optionString);		
+		else											{	pipecommand = new NoCommand(optionString);						}
 
 		return pipecommand;
 	}
@@ -216,14 +216,14 @@ Command* CommandFactory::getCommand(string commandName){
 	try {
 		delete shellcommand;   //delete the old command
 
-		if(commandName == "cluster")                    {	shellcommand = new ClusterCommand(optionString);					}
+		if(commandName == "cluster")                    {	shellcommand = new ClusterCommand(optionString);				}
 		else if(commandName == "quit")					{	shellcommand = new QuitCommand(optionString);					}
 		else if(commandName == "dist.seqs")				{   shellcommand = new DistanceCommand(optionString);				}
 		else if(commandName == "help")					{	shellcommand = new HelpCommand(optionString);					}
 		else if(commandName == "pre.cluster")			{	shellcommand = new PreClusterCommand(optionString);				}
 		else if(commandName == "set.dir")				{	shellcommand = new SetDirectoryCommand(optionString);			}
 		else if(commandName == "cluster.classic")		{	shellcommand = new ClusterDoturCommand(optionString);			}
-		else											{	shellcommand = new NoCommand(optionString);	
+		else											{	shellcommand = new NoCommand(optionString);						}
 
 		return shellcommand;
 	}
