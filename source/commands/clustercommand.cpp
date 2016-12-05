@@ -13,7 +13,6 @@
 #include "readmatrix.hpp"
 #include "clusterdoturcommand.h"
 #include "sequence.hpp"
-#include "systemcommand.h"
 
 //**********************************************************************************************************************
 vector<string> ClusterCommand::setParameters(){	
