@@ -13,7 +13,6 @@
 #include "distancecommand.h"
 #include "helpcommand.h"
 #include "nocommands.h"
-#include "preclustercommand.h"
 #include "quitcommand.h"
 #include "setdircommand.h"
 
@@ -159,7 +158,6 @@ Command* CommandFactory::getCommand(string commandName, string optionString){
 		else if(commandName == "quit")					{	command = new QuitCommand(optionString);					}
 		else if(commandName == "dist.seqs")				{   command = new DistanceCommand(optionString);				}
 		else if(commandName == "help")					{	command = new HelpCommand(optionString);					}
-		else if(commandName == "pre.cluster")			{	command = new PreClusterCommand(optionString);				}
 		else if(commandName == "set.dir")				{	command = new SetDirectoryCommand(optionString);			}
 		else if(commandName == "cluster.classic")		{	command = new ClusterDoturCommand(optionString);			}
 		else											{	command = new NoCommand(optionString);						}
@@ -196,7 +194,6 @@ Command* CommandFactory::getCommand(string commandName, string optionString, str
 		else if(commandName == "quit")					{	pipecommand = new QuitCommand(optionString);					}
 		else if(commandName == "dist.seqs")				{   pipecommand = new DistanceCommand(optionString);				}
 		else if(commandName == "help")					{	pipecommand = new HelpCommand(optionString);					}
-		else if(commandName == "pre.cluster")			{	pipecommand = new PreClusterCommand(optionString);				}
 		else if(commandName == "set.dir")				{	pipecommand = new SetDirectoryCommand(optionString);			}
 		else if(commandName == "cluster.classic")		{	pipecommand = new ClusterDoturCommand(optionString);			}
 		else											{	pipecommand = new NoCommand(optionString);						}
@@ -220,7 +217,6 @@ Command* CommandFactory::getCommand(string commandName){
 		else if(commandName == "quit")					{	shellcommand = new QuitCommand();					}
 		else if(commandName == "dist.seqs")				{   shellcommand = new DistanceCommand();				}
 		else if(commandName == "help")					{	shellcommand = new HelpCommand();					}
-		else if(commandName == "pre.cluster")			{	shellcommand = new PreClusterCommand();				}
 		else if(commandName == "set.dir")				{	shellcommand = new SetDirectoryCommand();			}
 		else if(commandName == "cluster.classic")		{	shellcommand = new ClusterDoturCommand();			}
 		else											{	shellcommand = new NoCommand();						}

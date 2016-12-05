@@ -15,7 +15,6 @@
 #include "helpcommand.h"
 #include "helpcommand.h"
 #include "nocommands.h"
-#include "preclustercommand.h"
 #include "quitcommand.h"
 #include "setdircommand.h"
 
@@ -46,7 +45,6 @@ int HelpCommand::execute(){
                 else if(commandName == "quit")                  {   command = new QuitCommand(optionString);                    }
                 else if(commandName == "dist.seqs")             {   command = new DistanceCommand(optionString);                }
                 else if(commandName == "help")                  {   command = new HelpCommand(optionString);                    }
-                else if(commandName == "pre.cluster")           {   command = new PreClusterCommand(optionString);              }
                 else if(commandName == "set.dir")               {   command = new SetDirectoryCommand(optionString);            }
                 else if(commandName == "cluster.classic")       {   command = new ClusterDoturCommand(optionString);            }
                 else                                            {   command = new NoCommand(optionString);                      }
