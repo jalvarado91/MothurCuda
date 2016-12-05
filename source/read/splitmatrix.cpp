@@ -10,7 +10,6 @@
 #include "splitmatrix.h"
 #include "phylotree.h"
 #include "distancecommand.h"
-#include "seqsummarycommand.h"
 
 /***********************************************************************/
 
